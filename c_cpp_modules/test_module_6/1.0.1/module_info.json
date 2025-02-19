@@ -1,0 +1,19 @@
+{
+    "name": "test_module_6",
+    "version": "1.0.1",
+    "description": "testing...",
+    "author": "Atri Thakar",
+    "license": "MIT",
+    "keywords": [
+        "testing"
+    ],
+    "main": "main.py",
+    "scripts": {
+        "test": "None"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "requires": []
+}
