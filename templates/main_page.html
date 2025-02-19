@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUL - A Package Manager For C/C++</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main_page.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/main_page">Home</a></li>
+            <li><a href="/upload_modules">Upload</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+        <a href="/logout" class="logout-link">Logout</a>
+    </nav>
+
+    <h1>Welcome To CUL - A Package Manager For C/C++</h1>
+
+    <form action="/main_page" method="post">
+        <label for="module_name">Module Name:</label>
+        <input type="text" name="module_name" id="module_name" placeholder="Enter Module Name Here" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if module_versions %}
+    <h2>Search Results:</h2>
+    <ul>
+        {% for module, versions in module_versions.items() %}
+
+        {% for version in versions %}
+        <li>Module: {{ module }} Version: {{ version }}
+            <form action="/info/{{ module }}/{{ version }}" method="get">
+                <button type="submit">See Details</button>
+            </form>
+            <form action="/files/{{ module }}/{{ version }}" method="get">
+                <button type="submit">Download</button>
+            </form>
+        </li>
+        {% endfor %}
+
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if error %}
+    <h2 class="error">{{ error }}</h2>
+    {% endif %}
+</body>
+
+</html>

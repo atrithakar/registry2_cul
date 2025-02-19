@@ -1,0 +1,151 @@
+/* styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9; /* Light background for elegance */
+    color: #333333; /* Dark text for readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+h1 {
+    color: #4e73df; /* Blue color for headings */
+    text-align: center;
+}
+
+h2 {
+    color: #5a5a5a; /* Dark gray color for subheadings */
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+ul li {
+    font-size: 16px;
+    padding: 5px 0;
+    color: #555555; /* Light gray text for list items */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+form label {
+    font-size: 14px;
+    color: #555555;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    color: #333333;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    background-color: #ffffff;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6c63ff; /* Elegant purple button */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #5145cd; /* Slightly darker purple */
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #d1d5db;
+}
+
+table th {
+    background-color: #6c63ff;
+    color: white;
+}
+
+table td a {
+    text-decoration: none;
+    color: #6c63ff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+table td a:hover {
+    color: #5145cd;
+}
+
+a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+a:hover {
+    color: #5145cd;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+h2.error {
+    color: #d9534f; /* Red color for error messages */
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+h2.success {
+    color: #28a745; /* Green color for success messages */
+    font-size: 18px;
+    margin-top: 20px;
+}

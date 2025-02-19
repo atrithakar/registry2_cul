@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <title>CUL - Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    {% if profile %}
+    <h2>Profile Information</h2>
+    <ul>
+        <li>Username: {{ profile['username'] }}</li>
+        <li>Email: {{ profile['email'] }}</li>
+        <li>First Name: {{ profile['first_name'] }}</li>
+        <li>Last Name: {{ profile['last_name'] }}</li>
+    </ul>
+    
+    {% else %}
+    <h2>Error occured getting profle information...</h2>
+    {% endif %}
+
+    {% if error %}
+    <h2>{{error}}</h2>
+    {% endif %}
+
+    {% if success %}
+    <h2>{{success}}</h2>
+    {% endif %}
+
+    {% if modules %}
+    <h2>Published Modules</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Module ID</th>
+                <th>Module Name</th>
+                <th>Module URL</th>
+                <th>Update Module</th>
+                <th>Delete Module</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for module in modules %}
+            <tr>
+                <td>{{ module['module_id'] }}</td>
+                <td>{{ module['module_name'] }}</td>
+                <td>{{ module['module_url'] }}</td>
+                <td><a href="/update_module/{{module.module_id}}">Update</a></td>
+                <td><a href="/delete_module/{{module.module_id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2>No modules published</h2>
+    {% endif %}
+
+    <form action="/change_password" method="post">
+        <label for="old_password">Enter your old password: </label>
+        <input type="text" name="old_password" id="old_password" required><br>
+        <label for="new_password">Enter your new password: </label>
+        <input type="text" name="new_password" id="new_password" required><br>
+        <button type="submit">Change Password</button>
+    </form>
+
+    <form action="/main_page" method="get">
+        <button type="submit">Back to Main Page</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='upload_modules.css') }}">
+    <title>CUL - Upload</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/main_page">Home</a></li>
+            <li><a href="/upload_modules">Upload</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+        <a href="/logout" class="logout-link">Logout</a>
+    </nav>
+    <h1>Upload a module</h1>
+    <h2>Guidelines for uploading modules</h2>
+    <ul>
+        <li>Make sure the repository is public</li>
+        <li>Make sure the repository contains a README.md file</li>
+        <li>Make sure the repository contains a LICENSE file</li>
+        <li>Each version of module should follow x.y.z rule. x = major version, y = minor version, z = patch</li>
+        <li>Repo name should be the same as the module name</li>
+        <!-- <li>Make sure the repository contains a .cul file</li> -->
+    </ul>
+    <h2>Folder structure should look like this:</h2>
+    <pre>
+        module_name
+        |__1.0.0
+        |   |__README.md
+        |   |__LICENSE (optional)
+        |   |__module.cpp or module.c
+        |   |__module_info.json
+        |__1.0.1
+        |   |__README.md
+        |   |__LICENSE (optional)
+        |   |__module.cpp or module.c
+        |   |__module_info.json
+        and so on...
+        |__versions.json
+    </pre>
+    <h2>Here's a glimpse of what module_info.json should look like (it can be generated using cul init command):</h2>
+    <pre>
+        {
+            "name": "test_module_5",
+            "version": "1.0.1",
+            "description": "This is the test module intended to be used for testing purposes in development of CUL",
+            "author": "Atri Thakar - The Greatest Programmer That Ever Lived",
+            "license": "MIT",
+            "keywords": [
+                "atri",
+                "thakar",
+                "test",
+                "module",
+                "5",
+                "cul"
+            ],
+            "main": "atri.c",
+            "scripts": {
+                "test": "None"
+            },
+            "repository": {
+                "type": "git",
+                "url": ""
+            },
+            "requires": [
+                "test_module_4==1.0.0"
+            ]
+        }
+    </pre>
+    <h2>Here's a glimpse of what versions.json should look like:</h2>
+    <pre>
+        {
+            "versions" : [
+                {
+                    "version" : "1.0.0",
+                    "path" : "test_module_5/1.0.0"
+                },
+                {
+                    "version" : "1.0.1",
+                    "path" : "test_module_5/1.0.1"
+                }
+            ],
+            "latest" : "1.0.1",
+            "latest_path" : "test_module_5/1.0.1",
+            "requires" :{
+                "1.0.0" : [],
+                "1.0.1" : [
+                    "test_module_4==1.0.0"
+                ]
+            }
+        }
+    </pre>
+    <p><b>NOTE: For now, it will be the responsibility of module's developer to manage versions.json but the automation
+        feature will be introduced soon.</b></p>
+    <h2>Link should look like this:</h2>
+    <p id="url">https://github.com/owner_name/repo_name</p>
+    <form action="/upload_modules" method="post" onsubmit="return validate_link()">
+        <label for="github_repo_link">Enter the link to the GitHub repository: </label>
+        <input type="text" name="github_repo_link" id="github_repo_link" required>
+        <button type="submit">Upload</button>
+    </form>
+    {% if error %}
+    <h2>{{error}}</h2>
+    {% endif %}
+    {% if success %}
+    <h2>{{success}}</h2>
+    {% endif %}
+</body>
+<script>
+    function validate_link() {
+        var link = document.getElementById("github_repo_link").value;
+        if (link.includes("https://github.com/")) {
+            return true;
+        } else {
+            alert("Please enter a valid GitHub repository link");
+            return false; // Prevent form submission
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+/* styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9; /* Light background for elegance */
+    color: #333333; /* Dark text for readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #ffffff; /* White background for form */
+    padding: 30px;
+    border: 1px solid #d1d5db; /* Soft gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px;
+    border-radius: 4px; /* Slight rounding for modern look */
+}
+
+form label {
+    font-size: 14px;
+    color: #555555; /* Medium gray for labels */
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    color: #333333;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #6c63ff; /* Elegant purple for focus */
+    background-color: #ffffff;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6c63ff; /* Elegant purple button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #5145cd; /* Slightly darker purple */
+}
+
+a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #5145cd; /* Darker purple for hover */
+}
+
+h2 {
+    color: #d9534f; /* Subtle red for error messages */
+    text-align: center;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Flexbox for alignment of error and link */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}

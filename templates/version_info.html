@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='version_info.css') }}">
+
+    <title>Version Info</title>
+</head>
+<body>
+    {% if data %}
+    <h2>Details for Module: {{data.ModuleName}} Version: {{data.Version}}</h2>
+    <table>
+        <tr>
+            <td><strong>Author:</strong></td>
+            <td>{{data.Author}}</td>
+        </tr>
+        <tr>
+            <td><strong>Description:</strong></td>
+            <td>{{data.Description}}</td>
+        </tr>
+        <tr>
+            <td><strong>License:</strong></td>
+            <td>{{data.License}}</td>
+        </tr>
+        <tr>
+            <td><strong>Dependencies:</strong></td>
+            <td>
+                <ul>
+                    {% if data.Dependencies %}
+                    {% for key in data.Dependencies %}
+                    <li>{{key}}: v{{data.Dependencies[key]}}</li>
+                    {% endfor %}
+                    {% else %}
+                    <li>None</li>
+                    {% endif %}
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <a href="/files/{{data.ModuleName}}/{{data.Version}}">Download</a>
+    {% else %}
+    <h2>Unable to fetch module details. Please try again later.</h2>
+    {% endif %}
+</body>
+</html>
