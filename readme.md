@@ -1,27 +1,50 @@
-# This repo is for testing new feature in **Project CUL**, multiple registries.
-### It simply means that users can specify a custom registry to download package from.
+# 🧪 Project CUL – Legacy Backend (Multi-Registry Prototype)
 
-# 🚨 NOTICE 🚨  
+> **⚠️ This backend is deprecated.**  
+> 👉 Use the new and improved backend here:  
+> 🔗 **[cul_backend_fastapi_mongodb](https://github.com/atrithakar/cul_backend_fastapi_mongodb)**  
+>  
+> The CLI frontend for interacting with CUL is available at:  
+> 🔗 **[project_cul](https://github.com/atrithakar/project_cul)**
 
-## ⚠️ THIS PROJECT IS STILL UNDER DEVELOPMENT ⚠️  
+---
 
-The production database is currently **READ-ONLY**, meaning any actions that involve writing to the database are disabled for now. However, you can still explore the system using the credentials below.  
+### 🧠 What is This?
 
-### 🔗 Access the Project:  
+This repo was created to test the **multiple registries** feature in **Project CUL**.  
+It allowed simulating a custom registry environment, as real-world users might want to self-host their own module registry.
+
+---
+
+## 🚨 DEPRECATION NOTICE
+
+This backend served as a **prototype** and has now been replaced with a more performant architecture.  
+The current backend uses **FastAPI** and **MongoDB** for speed, flexibility, and scalability.
+
+The production database here is **READ-ONLY**, and this repo is no longer actively maintained.  
+However, you can still **explore the system** using the test credentials below.
+
+---
+
+### 🔗 Live Demo  
 👉 **[CUL Live Demo](https://culb.vercel.app/)**  
 
-### 🔑 Test Login Credentials:  
+### 🔑 Test Login Credentials  
 1. **Email:** `b@b.b`  
    **Password:** `b`  
 2. **Email:** `c@c.c`  
    **Password:** `c`  
 
-While logged in, you can navigate through the system and explore its features, but **modifications, updates, or any write operations are disabled**.  
+Note: Write operations are **disabled** in the demo.
 
-### 🛠️ Future Plans:  
-This is just a **prototype**, and the final version will include:  
-✅ Migration to a **more efficient database and backend**  
-✅ Enhanced backend performance  
-✅ Full support for database write operations  
+---
 
-Stay tuned for updates as we continue improving the project! 🚀  
+### 🔭 Looking Ahead
+
+The new backend supports:
+- ✅ Scalable architecture with FastAPI + MongoDB
+- ✅ Support for custom registries (like this one)
+- ✅ CLI and Web UI integration
+- ✅ Planned self-hosting support
+
+Stay tuned for updates! 🚀
